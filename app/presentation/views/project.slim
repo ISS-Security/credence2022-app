@@ -1,0 +1,66 @@
+h2
+  == "#{project.name}"
+
+dl
+  div class="row"
+    div class="col-xs-3"
+      dt Project Repository:
+    div class="col-xs-9"
+      dd class="blockquote"
+        a href="#{project.repo_url}" #{project.repo_url}
+
+div class="row"
+  div class="col-lg-9"
+    div class="row"
+      table class="table"
+        thead
+          tr
+            th File
+            th Description
+        tbody
+          - project.documents.each do |document|
+            tr
+              td 
+                a href="/documents/#{document.id}"
+                  == "#{document.filename}"
+              td #{document.description}
+    div class="row"
+      div class="col-xs-4"
+        - if project.policies.can_add_documents
+          button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newDocumentModal" + New Document
+    div class="row" style="height:10px;"
+  div class="col-lg-3"
+    div class="panel panel-default"
+      div class="panel-heading" Collaborators
+      div class="panel-body"
+        - if project.collaborators.empty?
+          span class="small" There are no collaborators yet
+        ul class="list-group"
+          li class="list-group-item clearfix"
+              = project.owner.username
+          - project.collaborators.each do |collaborator|
+            li class="list-group-item clearfix"
+              '  #{collaborator.username}
+              - if project.policies.can_remove_collaborators
+                span class="float-end"
+                  form role='form' method='post' action="/projects/#{project.id}/collaborators"
+                    input type='hidden' name='action' value='remove'
+                    input type='hidden' name='email' value="#{collaborator.email}"
+                    button type="submit" class="btn btn-xs btn-default"
+                      span class="fas fa-user-times"
+        - if project.policies.can_add_collaborators
+          button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newCollaboratorModal" + Add Collaborator
+
+include :document_new_partial
+include :collaborator_new_partial
+
+.row
+  .text-center
+    - if project.policies.can_edit
+      a href="" edit project
+    - if project.policies.can_delete
+      == ' | '
+      a href="" delete project
+    - if project.policies.can_leave
+      == ' | '
+      a href="" leave project

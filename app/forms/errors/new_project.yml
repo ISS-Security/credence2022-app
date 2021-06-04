@@ -1,0 +1,4 @@
+en:
+  errors:
+    name: 'Project name must be filled'
+    repo_url: 'URL must be in proper format'

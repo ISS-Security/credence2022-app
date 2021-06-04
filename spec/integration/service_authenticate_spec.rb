@@ -32,7 +32,7 @@ describe 'Test Service Objects' do
 
       auth = Credence::AuthenticateAccount.new(app.config).call(**@credentials)
 
-      account = auth[:account]
+      account = auth[:account]['attributes']
       _(account).wont_be_nil
       _(account['username']).must_equal @api_account[:username]
       _(account['email']).must_equal @api_account[:email]
