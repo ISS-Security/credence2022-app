@@ -3,3 +3,7 @@
   width:100%;
   display:block;
 }
+
+.top-buffer { 
+  margin-top:20px; 
+}

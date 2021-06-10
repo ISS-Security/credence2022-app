@@ -8,13 +8,16 @@ module Credence
   class App < Roda
     route('account') do |routing|
       routing.on do
-        # GET /account/
+        # GET /account/[username]
         routing.get String do |username|
-          if @current_account && @current_account.username == username
-            view :account, locals: { current_account: @current_account }
-          else
-            routing.redirect '/auth/login'
-          end
+          account = GetAccountDetails.new(App.config).call(
+            @current_account, username
+          )
+
+          view :account, locals: { account: account }
+        rescue GetAccountDetails::InvalidAccount => e
+          flash[:error] = e.message
+          routing.redirect '/auth/login'
         end
 
         # POST /account/<registration_token>

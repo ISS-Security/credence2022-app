@@ -18,6 +18,7 @@ describe 'Test Service Objects' do
     it 'HAPPY: should find an authenticated account' do
       auth_account_file = 'spec/fixtures/auth_account.json'
       ## Use this code to get an actual seeded account from API:
+      # @credentials = { username: 'soumya.ray', password: 'mypa$$w0rd' }
       # response = HTTP.post("#{app.config.API_URL}/auth/authenticate",
       #   json: { username: @credentials[:username], password: @credentials[:password] })
       # auth_account_json = response.body.to_s
