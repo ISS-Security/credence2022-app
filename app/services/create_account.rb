@@ -15,13 +15,11 @@ module Credence
     end
 
     def call(email:, username:, password:)
-      message = { email:,
-                  username:,
-                  password: }
+      account = { email: , username: , password: }
 
       response = HTTP.post(
         "#{@config.API_URL}/accounts/",
-        json: message
+        json: SignedMessage.sign(account)
       )
 
       raise InvalidAccount unless response.code == 201
