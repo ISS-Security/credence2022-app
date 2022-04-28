@@ -33,8 +33,7 @@ module Credence
             routing.redirect @login_route
           end
 
-          authenticated = AuthenticateAccount.new(App.config)
-            .call(**credentials.values)
+          authenticated = AuthenticateAccount.new.call(**credentials.values)
 
           current_account = Account.new(
             authenticated[:account],

@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 ruby File.read('.ruby-version').strip
 
 # Web
-gem 'puma', '~> 5'
+gem 'puma', '~> 5.3.1'
 gem 'roda'
 gem 'slim'
 
