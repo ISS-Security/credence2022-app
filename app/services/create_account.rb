@@ -5,7 +5,10 @@ require 'http'
 module Credence
   # Returns an authenticated user, or nil
   class CreateAccount
-    class InvalidAccount < StandardError; end
+    # Error for accounts that cannot be created
+    class InvalidAccount < StandardError
+      def message = 'This account can no longer be created: please start again'
+    end
 
     def initialize(config)
       @config = config

@@ -13,6 +13,7 @@ Metrics/BlockLength:
   Exclude:
     - spec/**/*
     - Rakefile
+    - app/controllers/**/*
 
 Security/YAMLLoad:
   Enabled: true
