@@ -1,0 +1,29 @@
+div class="row"
+  div class="col-sm-3"
+  div class="col-sm-6"
+    form action="/account/#{registration_token}" method='post' id='user-form'
+      div class="form-group"
+        div class="row"
+          div class="col-sm-3" Username:
+          div class="col-sm-9"
+            == new_account['username']
+        div class="row"
+          div class="col-sm-3" Email:
+          div class="col-sm-9"
+            == new_account['email']
+
+      div class="form-group"
+        div class="row"
+          div class="col-sm-3"
+            label for='password_input' Password: 
+          div class="col-sm-9"
+            input type='password' name='password' id='password_input'
+      div class="form-group"
+        div class="row"
+          div class="col-sm-3"
+            label for='password_confirm_input' Re-enter Password: 
+          div class="col-sm-9"
+            input type='password' name='password_confirm' id='password_confirm_input'
+
+      button type='submit' id='registration-form-submit' class='submit' value='submit' class="btn btn-primary" submit
+  div class="col-sm-3"
