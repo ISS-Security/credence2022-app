@@ -1,0 +1,7 @@
+en:
+  errors:
+    filename: 'provide filename with up to 255 legal characters'
+    filename_valid?: 'filename has illegal characters (e.g., & | \\ / <tab>'
+    path_chars?: 'relative path has illegal characters (e.g., & | <tab>)'
+    description: 'provide a description'
+    content: 'provide content for document'

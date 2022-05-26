@@ -1,0 +1,23 @@
+div id="newDocumentModal" class="modal fade" role="dialog"
+  div class="modal-dialog"
+    div class="modal-content"
+      div class="modal-header"
+        h4 New Document
+        button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+      div class="modal-body"
+        form role="form" action="/projects/#{project.id}/documents" method='post' id='new-document-form'
+          div class="form-group"
+            label for='filename_input' File Name:
+            input type='text' name='filename' id='filename_input' class="form-control" placeholder="Filename is required"
+          div class="form-group"
+            label for='relative_path_input' Relative File Path:
+            span class="small" style="margin-left:10px;" (relative to project root)
+            input type='text' name='relative_path' id='relative_path_input' class="form-control" placeholder="(optional)" value="/"
+          div class="form-group"
+            label for='description_input' Description:
+            input type='text' name='description' id='description_input' class="form-control" placeholder="Describe the file"
+          div class="form-group"
+            label for='document_input' Document:
+            textarea name='content' id='content_input' class="form-control" placeholder="Copy/paste your document here"
+          button type='submit' class="btn btn-primary submit" id='registration-form-submit' value='submit' Create
+          button type="button" class="btn btn-secondary" data-bs-dismiss="modal" Cancel

@@ -1,0 +1,16 @@
+div id="newProjectModal" class="modal fade" role="dialog"
+  div class="modal-dialog"
+    div class="modal-content"
+      div class="modal-header"
+        h4 class="modal-title" New Project
+        button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+      div class="modal-body"
+        form role="form" action="/projects" method='post' id='new-project-form'
+          div class="form-group"
+            label for='name_input' Project Name:
+            input type='text' name='name' id='name_input' class="form-control" placeholder="name is required"
+          div class="form-group"
+            label for='repo_url_input' Project Repo URL:
+            input type='text' name='repo_url' id='repo_url_input' class="form-control" placeholder="must be a URL: https://github.com/me/example"
+          button type='submit' id='registration-form-submit' class='submit' value='submit' class="btn btn-primary" Create
+          button type="button" class="btn btn-secondary" data-bs-dismiss="modal" Cancel

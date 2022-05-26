@@ -1,7 +1,8 @@
 div class="row" style="vertical-align: bottom;"
   div class="col-xs-9"
-    h3 All Projects
+    h3 Projects
   div class="col-xs-3"
+    button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newProjectModal" + New Project
 table class="table"
   thead
     tr
@@ -11,6 +12,8 @@ table class="table"
     - projects.all.each do |proj|
       tr
         td 
-          a href="/account/projects/#{proj.id}" #{proj.name}
+          a href="/projects/#{proj.id}" #{proj.name}
           td 
             a href="#{proj.repo_url}" #{proj.repo_url}
+
+include :project_new_partial

@@ -1,0 +1,18 @@
+h2 
+  a href="/projects/#{document.project.id}" #{document.project.name}
+h3 File: #{File.join(document.relative_path, document.filename)}
+
+dl
+  div class="row"
+    div class="col-xs-3"
+      dt Description:
+    div class="col-xs-9"
+      dd class="blockquote" #{document.description}
+    div class="col-xs-3"
+      dt Document:
+    div class="col-xs-9"
+      dd class="blockquote"
+        a data-bs-toggle="collapse" href="#document" aria-expanded="false" aria-controls="document" show document
+        div id="document" class="collapse"
+          dov class="card card-body"
+            pre class="force-wrap" #{document.content}
