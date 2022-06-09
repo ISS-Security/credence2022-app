@@ -3,9 +3,9 @@ link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesom
 link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.0.0/bootstrap-social.css"
 
 div class="row"
+  div class="col-sm-1"
   div class="col-sm-4"
-  div class="col-sm-4"
-    h3 class="text-center" Login
+    h4 class="text-center" Login with credentials
     form method='post' action='/auth/login' id='form-login' accept-charset="UTF-8"
       div class="form-group"
         label for='input-username' Username
@@ -15,4 +15,13 @@ div class="row"
         input type='password' name='password' id='input-password' class="form-control"
       
       button type='submit' id='button-login' value='login' class="btn btn-primary btn-block" login
-  div class="col-sm-4"
+  .col-sm-2.text-center
+    h4 or
+  .col-sm-4
+    .row
+      h4.text-center Login with Github
+    .row
+      a class="btn-block btn-social btn-lg btn-github" href=gh_oauth_url
+        span class="fab fa-github"
+        == "Github Sign-in"
+  .col-sm-1

@@ -1,11 +1,26 @@
 h1 Account Details
 
-div class="container"
-  div class="row"
-    div class="col-sm-2" Username:
-    div class="col-sm-10"
-      == current_account.username
-  div class="row"
-    div class="col-sm-2" Email:
-    div class="col-sm-10"
-      == current_account.email
+.container
+  .row
+    h3 Attributes
+  .row
+    .col-sm-2 Username:
+    .col-sm-10
+      == account.username
+  .row
+    .col-sm-2 Email:
+    .col-sm-10
+      == account.email
+  .row.top-buffer
+    h3 API Access:
+  .row
+    span
+      = "(read-only key valid for one month)"
+  .row
+    .col-sm-2 API Key:
+    .col-sm-10
+      dd class="blockquote"
+        a data-bs-toggle="collapse" href="#api_key" aria-expanded="false" aria-controls="api_key" show key
+        div id="api_key" class="collapse"
+          dov class="card card-body"
+            pre class="text-wrap" #{account.auth_token}
