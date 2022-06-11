@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 ruby File.read('.ruby-version').strip
 
 # Web
-gem 'puma', '~> 5'
+gem 'puma', '~> 5.3.1'
 gem 'roda'
 gem 'slim'
 
@@ -21,6 +21,7 @@ gem 'redis-rack'
 gem 'dry-validation'
 gem 'rack-ssl-enforcer'
 gem 'rbnacl' # assumes libsodium package already installed
+gem 'secure_headers'
 
 # Debugging
 gem 'pry'

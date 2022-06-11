@@ -7,3 +7,8 @@
 .top-buffer { 
   margin-top:20px; 
 }
+
+.logo {
+  max-width:35px;
+  margin-top: -7px;
+}

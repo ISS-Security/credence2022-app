@@ -20,10 +20,10 @@ Security/YAMLLoad:
   Exclude:
     - spec/**/*
 
-# Style/HashSyntax:
-#   Enabled: true
-#   Exclude:
-#     - Rakefile
+Style/HashSyntax:
+  Enabled: true
+  Exclude:
+    - Rakefile
 
 Style/SymbolArray:
   Enabled: true

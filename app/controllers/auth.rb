@@ -15,7 +15,6 @@ module Credence
     end
 
     route('auth') do |routing|
-      @oauth_callback = '/auth/sso_callback'
       @login_route = '/auth/login'
       routing.is 'login' do
         # GET /auth/login
@@ -46,9 +45,9 @@ module Credence
           flash[:notice] = "Welcome back #{current_account.username}!"
           routing.redirect '/projects'
         rescue AuthenticateAccount::NotAuthenticatedError
-          flash[:error] = 'Username and password did not match our records'
+          flash.now[:error] = 'Username and password did not match our records'
           response.status = 401
-          routing.redirect @login_route
+          view :login
         rescue AuthenticateAccount::ApiServerError => e
           App.logger.warn "API server error: #{e.inspect}\n#{e.backtrace}"
           flash[:error] = 'Our servers are not responding -- please try later'
